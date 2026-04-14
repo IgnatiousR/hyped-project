@@ -1,0 +1,149 @@
+.section_hero {
+  padding: 8rem 0 4rem;
+  overflow: hidden;
+}
+
+.container {
+  max-width: var(--size-container-max);
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.hero_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+.hero_content {
+  max-width: 45rem;
+}
+
+.hero_eyebrow {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+.hero_title {
+  font-size: clamp(3rem, 10vw, 6rem);
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin-bottom: 2rem;
+}
+
+.hero_description {
+  font-size: 1.25rem;
+  max-width: 30rem;
+  opacity: 0.8;
+}
+
+.hero_cards-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+
+.hero_card {
+  position: relative;
+  width: 14rem;
+  height: 18rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  transition: transform 0.45s var(--bounce-ease);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  background: white; /* Default */
+}
+
+/* Specific Card Styles */
+.hero_card.is-blue {
+  background-color: var(--accent-blue);
+  color: white;
+  transform: rotate(-6deg) translateY(2rem);
+  z-index: 10;
+}
+
+.hero_card.is-pink {
+  background-color: var(--accent-pink);
+  color: black;
+  transform: rotate(4deg) translateY(-2rem);
+  z-index: 8;
+}
+
+.hero_card.is-video {
+  width: 12rem;
+  height: 20rem;
+  padding: 0;
+  z-index: 9;
+}
+
+.hero_card.is-video.is-1 {
+  transform: rotate(2deg) translateX(-2rem);
+}
+
+.hero_card.is-video.is-2 {
+  transform: rotate(-3deg) translateY(3rem);
+}
+
+.hero_card-video-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hero_card-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero_card-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero_card-number {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.hero_card-label {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+@media (hover: hover) {
+  .hero_card:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    z-index: 20;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .hero_wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero_content {
+    margin: 0 auto;
+  }
+  .hero_cards-container {
+    justify-content: center;
+    margin-top: 4rem;
+  }
+  .container {
+    padding: 0 2rem;
+  }
+}

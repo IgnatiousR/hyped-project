@@ -1,0 +1,107 @@
+.section_footer {
+  padding-top: 6rem;
+  background-color: var(--bg-color);
+}
+
+.cs-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cs-footer-cta {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.footer-heading {
+  font-size: 6rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  line-height: .9;
+  letter-spacing: -0.04em;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.cs-footer-bottom {
+  position: relative;
+  width: 100%;
+}
+
+.footer-bg {
+  width: 100%;
+  line-height: 0;
+}
+
+.footer-bg-svg {
+  width: 100%;
+  height: auto;
+}
+
+.footer-info-wrapper {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  padding: 0 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.footer-info-main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-credits {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Adjustments for Button icon */
+.icon-12px {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+@media screen and (max-width: 991px) {
+  .footer-heading {
+    font-size: 4rem;
+  }
+  .footer-info-wrapper {
+    position: static;
+    background: #EAE4D8;
+    padding: 2rem;
+  }
+  .footer-bg {
+    display: none;
+  }
+}

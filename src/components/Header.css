@@ -1,0 +1,57 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  pointer-events: none;
+  /* Allows clicking through the nav container if needed */
+}
+
+.navbar {
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  pointer-events: auto;
+  /* Re-enable pointer events for the navbar itself */
+}
+
+.nav_logo {
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.nav_logo:hover {
+  transform: scale(1.05);
+}
+
+.navbar_menu {
+  display: flex;
+  gap: 0.5rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 0.4rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.navbar_actions {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 991px) {
+  .navbar {
+    padding: 0 2rem;
+  }
+
+  .navbar_menu {
+    display: none;
+    /* Mobile menu implementation would go here */
+  }
+}
