@@ -1,0 +1,84 @@
+.section_clients {
+  padding: 4rem 0;
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+
+.clients_label {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.45;
+  margin-bottom: 2.5rem;
+}
+
+/* ─── Infinite scroll track ─── */
+.clients_track-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* Fade edges */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.clients_track {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  width: max-content;
+  animation: scroll-logos 28s linear infinite;
+}
+
+.clients_track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-logos {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.clients_logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 2rem;
+}
+
+.clients_logo {
+  height: 100%;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  opacity: 0.55;
+  filter: grayscale(100%);
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.clients_logo:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+.clients_logo-fallback {
+  font-weight: 700;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  white-space: nowrap;
+}

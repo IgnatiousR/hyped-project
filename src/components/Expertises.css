@@ -1,0 +1,131 @@
+.section_expertises {
+  padding: 8rem 2.5rem;
+  background-color: var(--bg-color);
+}
+
+/* ─── Header ─── */
+.expertises_header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 4rem;
+}
+
+.expertises_label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+  margin-bottom: 0.75rem;
+}
+
+.expertises_title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+}
+
+/* ─── List ─── */
+.expertises_list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.expertise_item {
+  display: grid;
+  grid-template-columns: 3rem 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.expertise_item:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.expertise_item:hover .expertise_item-arrow {
+  transform: translate(4px, -4px);
+  opacity: 1;
+}
+
+.expertise_item:hover .expertise_item-title {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.expertise_item-number {
+  font-size: 0.85rem;
+  font-weight: 700;
+  opacity: 0.35;
+  font-variant-numeric: tabular-nums;
+}
+
+.expertise_item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.expertise_item-top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.expertise_item-title {
+  font-size: clamp(1.25rem, 2.5vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.expertise_item-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.expertise_item-description {
+  font-size: 0.95rem;
+  opacity: 0.65;
+  max-width: 44rem;
+  line-height: 1.55;
+}
+
+.expertise_item-arrow {
+  opacity: 0.4;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* ─── Responsive ─── */
+@media screen and (max-width: 768px) {
+  .section_expertises {
+    padding: 5rem 1.5rem;
+  }
+
+  .expertises_header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .expertise_item {
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+  }
+
+  .expertise_item-arrow {
+    display: none;
+  }
+}
