@@ -1,6 +1,7 @@
 import Layout from "./components/Layout";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Expertises from "./components/Expertises";
 import "./App.css";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <Layout>
       <Hero />
       <About />
+      <Expertises />
     </Layout>
   );
 }
