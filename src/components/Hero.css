@@ -151,17 +151,48 @@
 /* ─── Responsive ─── */
 @media screen and (max-width: 768px) {
   .hero_heading-block {
-    padding: 0 1.5rem 2rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .hero_title {
+    font-size: 3.5rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .hero_description {
+    font-size: 1.125rem;
+    max-width: 100%;
+    opacity: 0.9;
   }
 
   .hero_cards-row {
-    padding: 0 1.5rem;
-    gap: 0.75rem;
+    padding: 1rem 1.5rem 3rem;
+    gap: 1.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+
+  .hero_cards-row::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
   }
 
   .hero_card {
-    width: 55vw;
-    height: 75vw;
-    min-height: 280px;
+    width: 75vw;
+    height: 100vw;
+    min-height: 350px;
+    max-height: 500px;
+    scroll-snap-align: center;
+    padding: 1.25rem;
   }
+
+  /* Reduce rotations on mobile for better stacking in horizontal scroll */
+  .hero_card:nth-child(1) { transform: rotate(-3deg); }
+  .hero_card:nth-child(2) { transform: rotate(1deg); }
+  .hero_card:nth-child(3) { transform: rotate(-2deg); }
+  .hero_card:nth-child(4) { transform: rotate(3deg); }
 }

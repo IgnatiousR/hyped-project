@@ -43,6 +43,18 @@
   padding: 0.4em 0.4em 0.4em 1.2em;
 }
 
+.button-default__background.is-form {
+  background-color: var(--_colors---brand-colors--red, #FF4C24);
+}
+.button-default.is-form .button-default__text {
+  color: #ffffff;
+}
+.button-default.is-form .button-default__icon {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+
 .button-default__icon {
   background-color: var(--_colors---swatch--off-white);
   color: var(--_colors---brand-colors--red);

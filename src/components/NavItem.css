@@ -113,3 +113,36 @@
     transition-delay: 0.1s;
   }
 }
+
+/* ─── Footer Variant ─── */
+.button-color-swoosh.is-footer {
+  padding: 0;
+  border-radius: 0;
+  font-size: 1.125rem;
+  transition: transform 0.3s var(--smooth-ease);
+}
+
+.button-color-swoosh.is-footer .button-color-swoosh_bg {
+  display: none;
+}
+
+.button-color-swoosh.is-footer .button-color-swoosh_text,
+.button-color-swoosh.is-footer .button-color-swoosh_inner::after {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.button-color-swoosh.is-footer:hover {
+  transform: translateX(4px);
+}
+
+.button-color-swoosh.is-footer:hover .button-color-swoosh_text {
+  color: var(--accent-pink);
+  opacity: 1;
+  translate: 0;
+  rotate: 0;
+}
+
+.button-color-swoosh.is-footer .button-color-swoosh_inner::after {
+  display: none;
+}

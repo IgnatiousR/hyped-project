@@ -1,95 +1,170 @@
 .section_about {
-  padding: 8rem 2.5rem;
+  padding: 8rem 0rem 4rem;
   background-color: var(--bg-color);
 }
 
-.about_inner {
-  max-width: 900px;
+.about_container {
+  max-width: var(--size-container-max);
+  margin: 0 auto;
 }
 
-.about_label {
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  opacity: 0.45;
-  margin-bottom: 2rem;
+.about_heading {
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 6rem;
+  color: var(--text-color);
+  max-width: 90%;
+  padding-left: 2.5rem;
+}
+
+.about_grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 4rem;
+  padding: 0 2.5rem;
+}
+
+.about_image-wrapper {
+  flex-shrink: 0;
+  width: clamp(250px, 20vw, 350px);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.about_image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 4.5;
+  object-fit: cover;
+  display: block;
+}
+
+.about_content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .about_text {
-  font-size: clamp(1.75rem, 3.5vw, 3rem);
-  font-weight: 800;
-  line-height: 1.25;
-  letter-spacing: -0.025em;
-  margin-bottom: 4rem;
+  font-size: clamp(1.1rem, 1.4vw, 1.5rem);
+  line-height: 1.4;
+  font-weight: 500;
+  margin-bottom: 3.5rem;
+  max-width: 32rem;
   color: var(--text-color);
 }
 
-.about_highlight {
-  display: inline;
-  padding: 0.05em 0.35em;
-  border-radius: 0.4em;
-}
-
-.about_highlight.is-blue  { background-color: #3d8ef822; color: #3d8ef8; }
-.about_highlight.is-green { background-color: #3ec97e22; color: #2aaa66; }
-.about_highlight.is-pink  { background-color: #fcb8fa44; color: #c040bd; }
-
-/* ─── Stats ─── */
-.about_stats {
+.about_buttons-wrapper {
   display: flex;
-  gap: 4rem;
-  margin-bottom: 3rem;
-  border-top: 1px solid rgba(0,0,0,0.1);
-  padding-top: 2.5rem;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.about_stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.about_stat-number {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1;
-}
-
-.about_stat-label {
-  font-size: 0.875rem;
-  opacity: 0.55;
-  font-weight: 500;
-}
-
-/* ─── Link ─── */
-.about_link {
+.button-outline {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-weight: 700;
-  font-size: 1rem;
-  text-decoration: none;
-  color: inherit;
-  border-bottom: 2px solid currentColor;
-  padding-bottom: 0.15em;
-  transition: gap 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+  gap: 0.75rem;
+  padding: 0.3em 0.3em 0.3em 1em;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 2rem;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.about_link:hover {
-  gap: 0.75rem;
-  opacity: 0.7;
+.button-outline:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: #000;
+}
+
+.button-outline__text {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #000;
+}
+
+.button-outline__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a1a;
+  color: #fff;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.button-outline:hover .button-outline__icon {
+  transform: translateX(2px);
+}
+
+.button-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  color: #ff3b30;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.button-circle:hover {
+  background-color: rgba(0,0,0,0.05);
+  border-color: rgba(0,0,0,0.4);
+  transform: translateY(2px);
 }
 
 /* ─── Responsive ─── */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
   .section_about {
-    padding: 5rem 1.5rem;
+    padding: 6rem 0 3rem;
   }
-
-  .about_stats {
+  
+  .about_heading {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-bottom: 4rem;
+    font-size: 3rem;
+  }
+  
+  .about_grid {
     flex-direction: column;
-    gap: 2rem;
+    align-items: flex-start;
+    padding: 0 1.5rem;
+    gap: 3rem;
+  }
+  
+  .about_image-wrapper {
+    width: 60vw;
+    max-width: 400px;
+  }
+  
+  .about_content {
+    width: 100%;
+  }
+  
+  .about_buttons-wrapper {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about_heading {
+    font-size: 2.25rem;
+  }
+  
+  .about_image-wrapper {
+    width: 100%;
+    max-width: none;
   }
 }

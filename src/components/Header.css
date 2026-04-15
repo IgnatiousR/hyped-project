@@ -4,7 +4,6 @@
   z-index: 1000;
   width: 100%;
   pointer-events: none;
-  /* Allows clicking through the nav container if needed */
 }
 
 .navbar {
@@ -14,7 +13,6 @@
   align-items: center;
   padding: 0 2rem;
   pointer-events: auto;
-  /* Re-enable pointer events for the navbar itself */
 }
 
 .nav_logo {
@@ -45,13 +43,201 @@
   align-items: center;
 }
 
+/* ─── Hidden on desktop ─── */
+.nav_toggle {
+  display: none;
+}
+
+.nav_mobile {
+  display: none;
+}
+
+/* ─── Mobile ─── */
 @media screen and (max-width: 991px) {
+  .nav_mobile {
+    display: flex;
+  }
+
   .navbar {
-    padding: 0 2rem;
+    padding: 0 1.5rem;
+    height: 5rem;
   }
 
   .navbar_menu {
     display: none;
-    /* Mobile menu implementation would go here */
+  }
+
+  .navbar_actions .button-default.is-nav {
+    display: none;
+  }
+
+  /* ─── Hamburger Toggle Button ─── */
+  .nav_toggle {
+    width: 2.75rem;
+    height: 2.75rem;
+    background: #f2c7ff;
+    border: none;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1100;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav_toggle:hover {
+    background: #ebafff;
+  }
+
+  .nav_toggle-line {
+    width: 1.25rem;
+    height: 2px;
+    background-color: #000;
+    border-radius: 2px;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .nav_toggle.is-active {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav_toggle.is-active .is-top {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+
+  .nav_toggle.is-active .is-bottom {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
+
+  /* ─── Full-Screen Overlay ─── */
+  .nav_mobile {
+    position: fixed;
+    inset: 0;
+    z-index: 1050;
+    display: flex;
+    align-items: stretch;
+    padding: 0.625rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+  }
+
+  .nav_mobile.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* ─── Pink Rounded Card ─── */
+  .nav_mobile-card {
+    flex: 1;
+    background: #f5bcf7;
+    border: 2.5px solid #e2d2bc;
+    border-radius: 1.375rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 1.5rem 2rem;
+    transform: scale(0.95) translateY(10px);
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .nav_mobile.is-open .nav_mobile-card {
+    transform: scale(1) translateY(0);
+  }
+
+  /* ─── Card Header: Logo + Close ─── */
+  .nav_mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .nav_mobile-header .nav_logo {
+    height: 3.25rem;
+  }
+
+  .nav_mobile-header .nav_logo:hover {
+    transform: scale(1.03);
+  }
+
+  .nav_mobile-close {
+    width: 2.75rem;
+    height: 2.75rem;
+    background: white;
+    border: none;
+    border-radius: 0.625rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    flex-shrink: 0;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .nav_mobile-close:hover {
+    background: #f0f0f0;
+    transform: scale(1.06);
+  }
+
+  /* ─── Nav Links (centered pills) ─── */
+  .nav_mobile-links {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /* Override NavItem swoosh appearance for the overlay */
+  .nav_mobile-links .button-color-swoosh {
+    background: white !important;
+    border-radius: 3rem !important;
+    padding: 0.875rem 2.75rem !important;
+    min-width: 210px;
+    justify-content: center;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #000 !important;
+    text-decoration: none;
+    display: inline-flex;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .nav_mobile-links .button-color-swoosh:hover {
+    transform: scale(1.04);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Hide swoosh animation spans inside the overlay */
+  .nav_mobile-links .button-color-swoosh_bg {
+    display: none !important;
+  }
+
+  .nav_mobile-links .button-color-swoosh_inner {
+    position: static !important;
+    transform: none !important;
+  }
+
+  .nav_mobile-links .button-color-swoosh_text {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* ─── Bottom CTA ─── */
+  .nav_mobile-footer {
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    padding-top: 1rem;
   }
 }

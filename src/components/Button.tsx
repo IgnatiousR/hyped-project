@@ -3,7 +3,7 @@ import './Button.css';
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: 'default' | 'outline' | 'nav' | 'icon';
+  variant?: 'default' | 'outline' | 'nav' | 'icon' | 'form';
   icon?: React.ReactNode;
   className?: string;
   onClick?: () => void;
