@@ -1,14 +1,34 @@
 .button-color-swoosh {
-  --elastic-ease-out: linear(0, 0.5737 7.6%, 0.8382 11.87%, 0.9463 14.19%, 1.0292 16.54%, 1.0886 18.97%, 1.1258 21.53%, 1.137 22.97%, 1.1424 24.48%, 1.1423 26.1%, 1.1366 27.86%, 1.1165 31.01%, 1.0507 38.62%, 1.0219 42.57%, 0.9995 46.99%, 0.9872 51.63%, 0.9842 58.77%, 1.0011 81.26%, 1);
-  --smooth-ease: cubic-bezier(.32, .72, 0, 1);
-  --color-ease: cubic-bezier(.215, .61, .355, 1);
+  --elastic-ease-out: linear(
+    0,
+    0.5737 7.6%,
+    0.8382 11.87%,
+    0.9463 14.19%,
+    1.0292 16.54%,
+    1.0886 18.97%,
+    1.1258 21.53%,
+    1.137 22.97%,
+    1.1424 24.48%,
+    1.1423 26.1%,
+    1.1366 27.86%,
+    1.1165 31.01%,
+    1.0507 38.62%,
+    1.0219 42.57%,
+    0.9995 46.99%,
+    0.9872 51.63%,
+    0.9842 58.77%,
+    1.0011 81.26%,
+    1
+  );
+  --smooth-ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --color-ease: cubic-bezier(0.215, 0.61, 0.355, 1);
 
   position: relative;
   display: inline-flex;
-  padding: 0.5rem 1.25rem;
-  border-radius: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
   overflow: hidden;
-  transition: transform .45s var(--elastic-ease-out);
+  transition: transform 0.45s var(--elastic-ease-out);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -16,18 +36,22 @@
   position: absolute;
   inset: 0;
   background-color: #fff;
-  transition: scale .45s var(--smooth-ease), background-color .2s var(--color-ease);
+  transition:
+    scale 0.45s var(--smooth-ease),
+    background-color 0.2s var(--color-ease);
   z-index: -1;
 }
 
 .button-color-swoosh_bg-inner {
   position: absolute;
   inset: 0;
-  translate: 0 110% 0;
+  translate: 0 115% 0;
   rotate: 0 0 1 -5deg;
-  transition: translate .6s var(--smooth-ease), rotate .5s var(--smooth-ease);
-  transition-delay: calc((var(--index) * -1) * .042s);
-  background-color: var(--accent-pink);
+  transition:
+    translate 0.6s var(--smooth-ease),
+    rotate 0.5s var(--smooth-ease);
+  transition-delay: calc((var(--index) * -1) * 0.042s);
+  background-color: var(--accent-red);
 }
 
 .button-color-swoosh_bg-inner.is-second {
@@ -45,9 +69,12 @@
   display: block;
   grid-area: 1 / 1;
   translate: 0 2em 0;
-  rotate: 1 1 .5 -30deg;
+  rotate: 1 1 0.5 -30deg;
   transform-origin: top right;
-  transition: translate .75s var(--elastic-ease-out), rotate .5s var(--smooth-ease), opacity .2s ease-out;
+  transition:
+    translate 0.75s var(--elastic-ease-out),
+    rotate 0.5s var(--smooth-ease),
+    opacity 0.2s ease-out;
   opacity: 0;
   font-weight: 600;
 }
@@ -55,7 +82,11 @@
 .button-color-swoosh_text {
   grid-area: 1 / 1;
   font-weight: 600;
-  transition: translate .75s var(--elastic-ease-out), rotate .5s var(--smooth-ease), opacity .2s ease-out, color .2s var(--color-ease);
+  transition:
+    translate 0.75s var(--elastic-ease-out),
+    rotate 0.5s var(--smooth-ease),
+    opacity 0.2s ease-out,
+    color 0.2s var(--color-ease);
 }
 
 @media (hover: hover) {
@@ -66,7 +97,7 @@
   .button-color-swoosh:hover .button-color-swoosh_bg-inner {
     translate: 0 0 0;
     rotate: 0 0 1 0deg;
-    transition-delay: calc(var(--index) * .064s);
+    transition-delay: calc(var(--index) * 0.064s);
   }
 
   .button-color-swoosh:hover .button-color-swoosh_text {
@@ -76,9 +107,9 @@
   }
 
   .button-color-swoosh:hover .button-color-swoosh_inner::after {
-    rotate: 1 1 .45 0deg;
+    rotate: 1 1 0.45 0deg;
     translate: 0 0 0;
     opacity: 1;
-    transition-delay: .1s;
+    transition-delay: 0.1s;
   }
 }

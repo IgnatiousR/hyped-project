@@ -1,29 +1,29 @@
 .section_hero {
-  padding-top: 3rem;
+  padding-top: 0rem;
   overflow: hidden;
   background-color: var(--bg-color);
 }
 
 /* ─── Heading Block ─── */
 .hero_heading-block {
-  padding: 0 2.5rem 2.5rem;
+  padding: 0rem 0.5rem;
 }
 
 .hero_title {
-  font-size: clamp(3.5rem, 9vw, 9rem);
-  font-weight: 900;
+  font-size: clamp(3.5rem, 9vw, 6rem);
+  font-weight: 600;
   line-height: 0.95;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.05em;
   margin-bottom: 1.25rem;
   color: var(--text-color);
 }
 
 .hero_description {
-  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  font-size: clamp(0.9rem, 1.4vw, 2rem);
   line-height: 1.5;
   max-width: 18rem;
+  font-weight: 600;
   opacity: 0.85;
-  font-weight: 400;
 }
 
 /* ─── Cards Row ─── */
@@ -32,7 +32,7 @@
   flex-direction: row;
   align-items: flex-start;
   gap: 1rem;
-  padding: 0 2.5rem;
+  padding: 2rem 2.5rem;
   /* Bleed off the right edge */
   padding-right: 0;
   /* Slight left overlap so first card hugs left */
@@ -46,7 +46,6 @@
   width: 22vw;
   min-width: 200px;
   max-width: 320px;
-  height: 55vw;
   min-height: 400px;
   max-height: 680px;
   border-radius: 1.5rem;
@@ -60,10 +59,22 @@
 }
 
 /* Rotations matching the reference */
-.hero_card:nth-child(1) { transform: rotate(-6deg); z-index: 4; }
-.hero_card:nth-child(2) { transform: rotate(2deg);  z-index: 3; }
-.hero_card:nth-child(3) { transform: rotate(-3deg); z-index: 2; }
-.hero_card:nth-child(4) { transform: rotate(5deg);  z-index: 1; }
+.hero_card:nth-child(1) {
+  transform: rotate(-6deg);
+  z-index: 4;
+}
+.hero_card:nth-child(2) {
+  transform: rotate(2deg);
+  z-index: 3;
+}
+.hero_card:nth-child(3) {
+  transform: rotate(-3deg);
+  z-index: 2;
+}
+.hero_card:nth-child(4) {
+  transform: rotate(5deg);
+  z-index: 1;
+}
 
 @media (hover: hover) {
   .hero_card:hover {
