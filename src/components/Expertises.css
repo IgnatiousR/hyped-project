@@ -1,201 +1,310 @@
+/* ─── Section ─── */
 .section_expertises {
-  padding: 4rem 0 8rem;
   background-color: var(--bg-color);
+  padding: 4rem 0 0;
 }
 
-.expertises_container {
-  max-width: var(--size-container-max);
-  margin: 0 auto;
-  padding: 0 2.5rem;
+/* ─── Stacking List ─── */
+.expertises-list {
+  position: relative;
+  /* Added perspective for the 3D rotationX effect */
+  perspective: 2000px;
+  perspective-origin: center top;
 }
 
-.expertise_card {
-  background-color: #ffffff;
+/* ─── Each card is sticky — slides up and stacks over the previous ─── */
+.expertise-item {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 2.5rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  transform-style: preserve-3d;
+}
+
+/* Last item: same sticky behavior, just add bottom padding */
+.expertise-item:last-child {
+  padding-bottom: 2.5rem;
+}
+
+/* ─── Wrap is now just a full-size flex container ─── */
+.expertise-wrap {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  transform-style: preserve-3d;
+}
+
+/* ─── Card ─── */
+.expertise-content {
+  width: 100%;
+  min-height: 100%;
   border-radius: 3.5rem;
-  padding: 4.5rem;
+  padding: 3.5rem 4rem;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  transition: background-color 0.3s ease;
+  transform-style: preserve-3d;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
 }
 
-.expertise_card-top {
+/* ─── Theme Colors ─── */
+.expertise-content.theme-white {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+.expertise-content.theme-pink {
+  background-color: #f5bcf7;
+  color: #1a1a1a;
+}
+
+.expertise-content.theme-green {
+  background-color: #3dcf9e;
+  color: #1a1a1a;
+}
+
+.expertise-content.theme-blue {
+  background-color: #b4d4ff;
+  color: #1a1a1a;
+}
+
+/* ─── Top Row ─── */
+.expertise-content_top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-.expertise_badge {
+.expertise-badge {
+  background-color: rgba(0, 0, 0, 0.07);
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.theme-white .expertise-badge {
   background-color: #f0ebe1;
-  color: #000;
-  padding: 0.6rem 1.25rem;
-  border-radius: 0.5rem;
-  font-weight: 500;
-  font-size: 1.1rem;
 }
 
-.expertise_number {
-  font-size: clamp(4rem, 8vw, 8rem);
-  font-weight: 600;
-  color: #e8e2d4;
-  line-height: 0.8;
+.expertise-content_number {
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 700;
+  line-height: 0.85;
   letter-spacing: -0.04em;
-  margin-top: -0.5rem;
+  opacity: 0.12;
 }
 
-.expertise_title {
-  font-size: clamp(3rem, 7vw, 6.5rem);
-  font-weight: 600;
+/* ─── Heading ─── */
+.expertise-content_heading {
+  font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+  font-weight: 700;
   letter-spacing: -0.04em;
-  margin-bottom: 5rem;
-  line-height: 1.05;
-  color: var(--text-color);
+  line-height: 0.95;
+  margin-bottom: 2rem;
+  max-width: 90%;
 }
 
-.expertise_content-wrapper {
+/* ─── Bottom Section ─── */
+.expertise-content_bottom {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 4rem;
+  gap: 3rem;
+  margin-top: auto; /* Push content to bottom area */
 }
 
-.expertise_content-left {
+.expertise-content_left {
   flex: 1;
   max-width: 32rem;
 }
 
-.expertise_subtitle {
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
-  font-weight: 600;
-  line-height: 1.4;
-  margin-bottom: 1.2rem;
-  color: var(--text-color);
+.expertise-content_subtitle {
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
 }
 
-.expertise_text {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
+.expertise-content_text {
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
   line-height: 1.5;
-  margin-bottom: 2.5rem;
-  color: var(--text-color);
-  font-weight: 500;
+  margin-bottom: 2.25rem;
+  font-weight: 400;
+  opacity: 0.8;
 }
 
-.button-orange {
+/* ─── CTA Button ─── */
+.expertise-cta-btn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  background-color: #f25b29;
-  color: #fff;
-  border: none;
-  border-radius: 2rem;
-  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  gap: 1rem;
+  border-radius: 3rem;
+  padding: 0.65rem 0.65rem 0.65rem 1.75rem;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease;
-}
-
-.button-orange:hover {
-  transform: translateY(-2px);
-  background-color: #eb5422;
-}
-
-.button-orange__text {
+  text-decoration: none;
   font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  width: fit-content;
 }
 
-.button-orange__icon {
-  background-color: #fff;
-  color: #f25b29;
+.expertise-cta-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.expertise-cta-btn.is-orange {
+  background-color: #f25b29;
+  color: #fff;
+}
+
+.expertise-cta-btn.is-dark {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.expertise-cta-btn__icon {
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
-  width: 2.25rem;
-  height: 2.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  background-color: #fff;
   transition: transform 0.3s ease;
 }
 
-.button-orange:hover .button-orange__icon {
-  transform: translateX(3px);
+.expertise-cta-btn.is-orange .expertise-cta-btn__icon {
+  color: #f25b29;
 }
 
-.button-orange__icon svg {
-  width: 14px;
-  height: 14px;
+.expertise-cta-btn.is-dark .expertise-cta-btn__icon {
+  color: #1a1a1a;
 }
 
-/* Image */
-.expertise_content-right {
+.expertise-cta-btn:hover .expertise-cta-btn__icon {
+  transform: translateX(4px);
+}
+
+/* ─── Image Area ─── */
+.expertise-content_right {
   flex-shrink: 0;
-  position: relative;
-  width: clamp(200px, 30vw, 22rem);
-  margin-right: 1.5rem;
+  width: clamp(200px, 25vw, 18rem);
+  margin-right: 1rem;
 }
 
-.expertise_image-wrapper {
-  position: relative;
-  border: 8px solid #f25b29;
-  border-radius: 1.5rem;
+.expertise-image-wrapper {
+  border-radius: 2rem;
   overflow: hidden;
-  aspect-ratio: 4 / 5.5;
-  transform: rotate(-2deg);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05); /* inner slight shadow just in case */
+  aspect-ratio: 4 / 5;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
 }
 
-.expertise_image {
+.expertise-image-wrapper.is-orange {
+  border: 10px solid #f25b29;
+  transform: rotate(-1.5deg);
+}
+
+.expertise-image-wrapper.is-orange .expertise-image {
+  transform: scale(1.05) rotate(1.5deg);
+}
+
+.expertise-image-wrapper.is-plain {
+  border: 10px solid rgba(255, 255, 255, 0.95);
+  transform: rotate(1deg);
+}
+
+.expertise-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.05) rotate(2deg); /* Counter rotate so image itself isn't tilted, just the frame */
   display: block;
 }
 
 /* ─── Responsive ─── */
 @media screen and (max-width: 991px) {
-  .expertise_card {
-    padding: 3rem;
+  .expertise-item {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+    padding: 1.5rem;
   }
-  
-  .expertise_content-wrapper {
+
+  .expertise-item:last-child {
+    padding-bottom: 3rem;
+  }
+
+  .expertise-content {
+    padding: 3rem 2.5rem;
+    border-radius: 2.5rem;
+    min-height: auto;
+  }
+
+  .expertise-content_top {
+    margin-bottom: 2rem;
+  }
+
+  .expertise-content_heading {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    margin-bottom: 3rem;
+  }
+
+  .expertise-content_bottom {
     flex-direction: column;
     align-items: flex-start;
-    gap: 5rem;
+    gap: 3rem;
   }
-  
-  .expertise_content-right {
-    margin-right: 0;
-    align-self: center;
+
+  .expertise-content_right {
     width: 60vw;
-    margin-top: 2rem;
+    align-self: flex-end;
+    margin-right: 0;
+  }
+
+  .expertise-content_left {
+    max-width: 100%;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .section_expertises {
-    padding: 3rem 0 6rem;
+    padding: 2rem 0 0;
   }
 
-  .expertises_container {
-    padding: 0 1.5rem;
+  .expertise-item {
+    padding: 1rem;
   }
-  
-  .expertise_card {
+
+  .expertise-content {
     padding: 2.5rem 1.5rem;
     border-radius: 2rem;
   }
 
-  .expertise_title {
-    font-size: 3rem;
-    margin-bottom: 3rem;
+  .expertise-content_heading {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+    margin-bottom: 2rem;
   }
 
-  .expertise_number {
-    font-size: 4.5rem;
+  .expertise-content_number {
+    font-size: 3.5rem;
   }
-  
-  .expertise_content-right {
-    width: 80vw;
+
+  .expertise-content_right {
+    width: 75vw;
   }
 }
+
+@media screen and (max-width: 479px) {
+  .expertise-content_right {
+    width: 90vw;
+  }
+}

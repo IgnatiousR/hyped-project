@@ -12,12 +12,18 @@ const Footer = () => {
           <div className="footer-cta">
             <h2 className="heading-xxl">Let's Get Hyped!</h2>
             <div className="button-group is-footer">
-              <Button variant="outline" href="mailto:info@gethyped.nl" icon={<EmailIcon />}>
-                Mail ons direct
-              </Button>
-              <Button variant="form" href="/contact" icon={<FlameIcon />}>
+              <a href="mailto:info@gethyped.nl" className="btn-mail-direct">
+                Mail ons direct 
+                <span className="icon-box">
+                  <EmailIcon />
+                </span>
+              </a>
+              <a href="/contact" className="btn-get-results">
                 Get Results
-              </Button>
+                <span className="icon-box">
+                  <FlameIcon />
+                </span>
+              </a>
             </div>
           </div>
           
@@ -36,12 +42,16 @@ const Footer = () => {
             <div className="footer-info-content">
               <div className="footer-grid">
                 
-                <div className="footer-col is-links">
-                  <div className="footer-sitemap">
-                    <NavItem label="Expertises" href="/expertises" className="is-footer" />
-                    <NavItem label="Work" href="/work" className="is-footer" />
-                    <NavItem label="About" href="/about" className="is-footer" />
-                    <NavItem label="Contact" href="/contact" className="is-footer" />
+                <div className="footer-col is-empty-left">
+                  {/* Space for absolute logo */}
+                </div>
+                
+                <div className="footer-col is-middle">
+                  <div className="footer-pills">
+                    <a href="/expertises" className="footer-pill">Expertises</a>
+                    <a href="/work" className="footer-pill">Work</a>
+                    <a href="/about" className="footer-pill">About</a>
+                    <a href="/contact" className="footer-pill">Contact</a>
                   </div>
                   
                   <div className="footer-socials">
@@ -62,31 +72,43 @@ const Footer = () => {
                           <path d="M28.4426 9.61758C28.4183 8.58045 28.224 7.55433 27.8676 6.58008C27.553 5.74483 27.0579 4.98935 26.4176 4.36758C25.7958 3.72728 25.0403 3.23216 24.2051 2.91758C23.2308 2.56113 22.2047 2.36689 21.1676 2.34258C19.8426 2.26758 19.4176 2.26758 16.0176 2.26758C12.6176 2.26758 12.1926 2.26758 10.8676 2.34258C9.83045 2.36689 8.80433 2.56113 7.83008 2.91758C6.99483 3.23216 6.23935 3.72728 5.61758 4.36758C4.97686 4.98655 4.4853 5.74313 4.18008 6.58008C3.81278 7.55176 3.61409 8.57902 3.59258 9.61758C3.51758 10.9426 3.51758 11.3676 3.51758 14.7676C3.51758 18.1676 3.51758 18.5926 3.59258 19.9176C3.61409 20.9561 3.81278 21.9834 4.18008 22.9551C4.4853 23.792 4.97686 24.5486 5.61758 25.1676C6.23935 25.8079 6.99483 26.303 7.83008 26.6176C8.80433 26.974 9.83045 27.1683 10.8676 27.1926C12.1926 27.2676 12.6176 27.2676 16.0176 27.2676C19.4176 27.2676 19.8426 27.2676 21.1676 27.1926C22.2047 27.1683 23.2308 26.974 24.2051 26.6176C25.0344 26.2914 25.7876 25.7978 26.4177 25.1677C27.0478 24.5376 27.5414 23.7844 27.8676 22.9551C28.224 21.9808 28.4183 20.9547 28.4426 19.9176C28.4426 18.5926 28.5176 18.1676 28.5176 14.7676C28.5176 11.3676 28.5176 10.9426 28.4426 9.61758ZM26.1926 19.7676C26.1835 20.561 26.0398 21.3472 25.7676 22.0926C25.5584 22.6317 25.2392 23.1213 24.8303 23.5303C24.4213 23.9392 23.9317 24.2584 23.3926 24.4676C22.6472 24.7398 21.861 24.8835 21.0676 24.8926C19.8176 24.9551 19.3551 24.9676 16.0676 24.9676C12.7801 24.9676 12.3176 24.9676 11.0676 24.8926C10.2435 24.9111 9.42259 24.7841 8.64258 24.5176C8.10344 24.3084 7.61381 23.9892 7.20489 23.5803C6.79598 23.1713 6.47676 22.6817 6.26758 22.1426C5.98976 21.3814 5.84597 20.5779 5.84258 19.7676C5.84258 18.5176 5.76758 18.0551 5.76758 14.7676C5.76758 11.4801 5.76758 11.0176 5.84258 9.76758C5.84597 8.9573 5.98976 8.15375 6.26758 7.39258C6.47676 6.85344 6.79598 6.36381 7.20489 5.95489C7.61381 5.54598 8.10344 5.22676 8.64258 5.01758C9.40375 4.73976 10.2073 4.59597 11.0176 4.59258C12.2676 4.59258 12.7301 4.51758 16.0176 4.51758C19.3051 4.51758 19.7676 4.51758 21.0176 4.59258C21.811 4.60168 22.5972 4.74539 23.3426 5.01758C23.8817 5.22676 24.3713 5.54598 24.7803 5.95489C25.1892 6.36381 25.5084 6.85344 25.7176 7.39258C26.0125 8.1507 26.1732 8.95435 26.1926 9.76758C26.2551 11.0176 26.2676 11.4801 26.2676 14.7676C26.2676 18.0551 26.2551 18.5176 26.1926 19.7676Z" fill="currentColor"/>
                         </svg>
                       </a>
+                      <a aria-label="YouTube" href="#" target="_blank" rel="noreferrer" className="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 0 31 30" fill="none">
+                          <path d="M28.3283 8.35882C28.3283 8.35882 28.0494 6.39809 27.1856 5.52554C26.0901 4.38209 24.8624 4.37687 24.3033 4.3101C20.2662 4.01855 15.65 4.01855 15.65 4.01855H15.6322C15.6322 4.01855 11.016 4.01855 6.97884 4.3101C6.41978 4.37687 5.19207 4.38209 4.0966 5.52554C3.23277 6.39809 2.95388 8.35882 2.95388 8.35882C2.95388 8.35882 2.66316 10.6728 2.66316 12.9868V14.7471C2.66316 17.0611 2.95388 19.3751 2.95388 19.3751C2.95388 19.3751 3.23277 21.3359 4.0966 22.2084C5.19207 23.3519 6.64366 23.3153 7.27218 23.4354C9.52928 23.6521 15.6411 23.7153 15.6411 23.7153C15.6411 23.7153 20.2624 23.7027 24.2995 23.4112C24.8585 23.3444 26.0862 23.3392 27.1817 22.1957C28.0455 21.3232 28.3244 19.3624 28.3244 19.3624C28.3244 19.3624 28.6151 17.0484 28.6151 14.7344V12.974C28.6279 10.6601 28.3283 8.35882 28.3283 8.35882ZM13.0142 17.6534V9.52843L20.8143 13.6152L13.0142 17.6534Z" fill="currentColor"/>
+                        </svg>
+                      </a>
                     </div>
                   </div>
                 </div>
                 
-                <div className="footer-col is-contact">
-                  <div className="footer-label">Contact</div>
-                  <a href="mailto:info@gethyped.nl" className="footer-link">info@gethyped.nl</a>
-                  <a href="tel:+31615337496" className="footer-link">+31 6 1533 7496</a>
-                  <a href="/privacy" className="footer-link">Privacyvoorwaarden</a>
-                </div>
-                
-                <div className="footer-col is-address">
-                  <div className="footer-label">Adres</div>
-                  <a href="https://www.google.nl/maps/dir/?api=1&destination=Beltrumsestraat+6%2C+7141+AL+Groenlo" target="_blank" rel="noreferrer" className="footer-link">
-                    Beltrumsestraat 6, <br/>7141 AL Groenlo
-                  </a>
+                <div className="footer-col is-right">
+                  <div className="footer-contact-item">
+                    <div className="footer-label">Contact</div>
+                    <a href="mailto:info@gethyped.nl" className="footer-link text-small">info@gethyped.nl</a>
+                    <a href="tel:+31615337496" className="footer-link text-small">+31 6 1533 7496</a>
+                  </div>
+                  
+                  <div className="footer-contact-item">
+                    <div className="footer-label">Adres</div>
+                    <a href="https://www.google.nl/maps/dir/?api=1&destination=Beltrumsestraat+6%2C+7141+AL+Groenlo" target="_blank" rel="noreferrer" className="footer-link text-small">
+                      Beltrumsestraat 6,<br/>7141 AL Groenlo
+                    </a>
+                  </div>
                 </div>
 
               </div>
               
               <div className="footer-bottom-bar">
                 <div className="footer-credits">
-                  <div>© {new Date().getFullYear()} Get Hyped</div>
-                  <div className="credits-divider">|</div>
-                  <a href="https://dylanbrouwer.design/" target="_blank" rel="noreferrer" className="design-credit">Design by Dylan</a>
+                  <div className="credit-left">
+                     © {new Date().getFullYear()} Get Hyped
+                  </div>
+                  <div className="credit-center">
+                     <a href="https://dylanbrouwer.design/" target="_blank" rel="noreferrer" className="design-credit">© Design by Dylan</a>
+                  </div>
+                  <div className="credit-right">
+                     <a href="/privacy" className="privacy-link">Privacyvoorwaarden</a>
+                  </div>
                 </div>
               </div>
 
@@ -99,3 +121,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
