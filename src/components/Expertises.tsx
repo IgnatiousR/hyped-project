@@ -17,9 +17,9 @@ const expertises: Expertise[] = [
   {
     id: "01",
     title: "Social strategy",
-    subtitle: "Slimme strategie. Sterke start.",
-    text: "We duiken diep in jouw merk, doelgroep en doelen. En vertalen data naar een duidelijk plan met formats die écht impact maken. Zo weet je precies waarom het werkt.",
-    cta: "Meer over social strategie",
+    subtitle: "Smart strategy. Strong start.",
+    text: "We dive deep into your brand, target audience, and goals. And we translate data into a clear plan with formats that make a real impact. That way, you know exactly why it works.",
+    cta: "More about social strategy",
     href: "#",
     image:
       "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?q=80&w=800&auto=format&fit=crop",
@@ -28,9 +28,9 @@ const expertises: Expertise[] = [
   {
     id: "02",
     title: "Content creation",
-    subtitle: "Content die opvalt en raakt.",
-    text: "We maken content die opvalt. Blijft hangen. En jouw doelgroep raakt. Creatief, snel en energiek. Altijd met het doel voor ogen.",
-    cta: "Meer over content creatie",
+    subtitle: "Content that stands out and resonates.",
+    text: "We create content that stands out. Sticks. And resonates with your target audience. Creative, fast, and energetic. Always with the goal in mind.",
+    cta: "More about content creation",
     href: "#",
     image:
       "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800&auto=format&fit=crop",
@@ -39,9 +39,9 @@ const expertises: Expertise[] = [
   {
     id: "03",
     title: "Activation",
-    subtitle: "Zichtbaar waar en wanneer het telt.",
-    text: "De juiste content verdient het om gezien te worden. We verspreiden de content waar jouw doelgroep is. Zo raakt jouw merk de juiste mensen, precies waar en wanneer het telt.",
-    cta: "Meer over activatie",
+    subtitle: "Visible where and when it counts.",
+    text: "The right content deserves to be seen. We distribute the content where your target audience is. This way, your brand reaches the right people, exactly where and when it counts.",
+    cta: "More about activation",
     href: "#",
     image:
       "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800&auto=format&fit=crop",
@@ -50,9 +50,9 @@ const expertises: Expertise[] = [
   {
     id: "04",
     title: "Data",
-    subtitle: "Inzichten die impact maken.",
-    text: "We duiken in de cijfers om te snappen wat écht werkt. En sturen jouw content scherp bij op basis van echte resultaten.",
-    cta: "Meer over data",
+    subtitle: "Insights that make an impact.",
+    text: "We dive into the numbers to understand what really works. And we fine-tune your content based on real results.",
+    cta: "More about data",
     href: "#",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
@@ -90,23 +90,7 @@ const buttonThemeMap = {
   },
 };
 
-const ArrowIcon = () => (
-  <svg
-    width="14"
-    height="14"
-    viewBox="0 0 22 21"
-    fill="none"
-    stroke="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M11.2832 20.9176L9.14509 18.8002L15.5491 12.3962L-0.00939941 12.3962L-0.00939941 9.30322L15.5491 9.30322L9.14509 2.9096L11.2832 0.78186L21.3511 10.8497L11.2832 20.9176Z"
-      fill="currentColor"
-    />
-  </svg>
-);
-
-const ArrowIcon1 = (
+const ArrowIcon = (
   <svg
     width="14"
     height="14"
@@ -216,7 +200,7 @@ const Expertises = () => {
 
                       <Button
                         variant="default"
-                        icon={ArrowIcon1}
+                        icon={ArrowIcon}
                         bgColor={btnTheme.bgColor}
                         textColor={btnTheme.textColor}
                         iconBgColor={btnTheme.iconBgColor}

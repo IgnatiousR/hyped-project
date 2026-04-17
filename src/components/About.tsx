@@ -21,13 +21,9 @@ const About = () => {
     <section className="section_about">
       <div className="about_container">
         <h2 className="about_heading">
-          Wij maken content die opvalt. Die
-          <br />
-          blijft hangen. Die jouw doelgroep
-          <br />
-          raakt en jouw merk in beweging
-          <br />
-          brengt. Snel, krachtig en energiek.
+          We create content that stands out. That sticks. That resonates with
+          your target audience and sets your brand in motion. Fast, powerful,
+          and energetic.
         </h2>
 
         <div className="about_grid">
@@ -41,40 +37,15 @@ const About = () => {
 
           <div className="about_content">
             <p className="about_text">
-              We stoppen niet bij mooie plaatjes en
-              <br />
-              vette beelden. We maken het meetbaar.
-              <br />
-              Zo weet je precies wat werkt en wat niet.
-              <br />
-              Nooit meer content zonder strategie.
-              <br />
-              Nooit meer content zonder resultaat.
+              We don't stop at pretty pictures and cool visuals. We make it
+              measurable. That way, you know exactly what works and what
+              doesn't. Never again content without a strategy. Never again
+              content without results.
             </p>
 
             <div className="about_buttons-wrapper">
-              {/* <button className="button-outline">
-                <span className="button-outline__text">Leer ons kennen</span>
-
-                <span className="button-outline__icon">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14"></path>
-                    <path d="m12 5 7 7-7 7"></path>
-                  </svg>
-                </span>
-              </button> */}
-
               <Button variant="outline" icon={ArrowIcon}>
-                Leer ons kennen
+                Get to know us
               </Button>
 
               <button className="icon-slide-btn">

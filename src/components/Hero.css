@@ -1,5 +1,5 @@
 .section_hero {
-  padding-top: 0rem;
+  padding-top: 5rem;
   overflow: hidden;
   background-color: var(--bg-color);
 }
@@ -10,7 +10,7 @@
 }
 
 .hero_title {
-  font-size: clamp(3.5rem, 9vw, 6rem);
+  font-size: clamp(3.0rem, 9vw, 6rem);
   font-weight: 600;
   line-height: 0.95;
   letter-spacing: -0.05em;
@@ -31,50 +31,61 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 1rem;
-  padding: 2rem 2.5rem;
+  gap: -3rem; /* Using negative gap for overlap */
+  padding: 4rem 2.5rem;
   /* Bleed off the right edge */
   padding-right: 0;
-  /* Slight left overlap so first card hugs left */
   margin-left: 0;
   overflow: visible;
 }
 
+/* Fallback for browsers not supporting negative gap or for better control */
+.hero_card {
+  margin-left: -2.5rem;
+}
+
+.hero_card:first-child {
+  margin-left: 0;
+}
+
+
 .hero_card {
   position: relative;
   flex-shrink: 0;
-  width: 22vw;
+  width: 25vw;
   min-width: 200px;
-  max-width: 320px;
-  min-height: 400px;
-  max-height: 680px;
-  border-radius: 1.5rem;
+  max-width: 360px;
+  aspect-ratio: 4 / 5.5;
+  border-radius: 2rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.5rem;
-  transition: transform 0.5s cubic-bezier(0.34, 2.27, 0.64, 1);
+  padding: 1.75rem;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: transform;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
+
 
 /* Rotations matching the reference */
 .hero_card:nth-child(1) {
-  transform: rotate(-6deg);
+  transform: rotate(-4deg);
   z-index: 4;
 }
 .hero_card:nth-child(2) {
-  transform: rotate(2deg);
+  transform: translateY(2rem) rotate(2deg);
   z-index: 3;
 }
 .hero_card:nth-child(3) {
-  transform: rotate(-3deg);
+  transform: rotate(-2deg);
   z-index: 2;
 }
 .hero_card:nth-child(4) {
-  transform: rotate(5deg);
+  transform: translateY(1.5rem) rotate(4deg);
   z-index: 1;
 }
+
 
 @media (hover: hover) {
   .hero_card:hover {
@@ -95,9 +106,10 @@
 }
 
 .hero_card.is-video {
-  background-color: #111;
+  background-color: #000;
   padding: 0;
 }
+
 
 /* ─── Card Content ─── */
 .hero_card-top {
@@ -140,22 +152,56 @@
   font-style: italic;
 }
 
+.hero_card-action {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.hero_card-action .button-default.is-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero_card:hover .hero_card-action .button-default.is-icon {
+  transform: scale(1.1) rotate(-15deg);
+}
+
+
 /* ─── Video ─── */
 .hero_card-video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  pointer-events: none; /* Hide browser PiP and controls on hover */
 }
+
+
 
 /* ─── Responsive ─── */
 @media screen and (max-width: 768px) {
+  .section_hero {
+    padding-top: 0; /* remove top padding on mobile */
+  }
+
   .hero_heading-block {
     padding: 2rem 1.5rem;
   }
 
   .hero_title {
-    font-size: 3.5rem;
+    /* font-size: 3.5rem; */
     line-height: 1;
     margin-bottom: 1rem;
   }
@@ -177,22 +223,35 @@
     -ms-overflow-style: none; /* IE/Edge */
   }
 
+    .hero_card:nth-child(n+3) {
+    display: none;
+  }
+
   .hero_cards-row::-webkit-scrollbar {
     display: none; /* Chrome/Safari */
   }
 
   .hero_card {
-    width: 75vw;
-    height: 100vw;
-    min-height: 350px;
-    max-height: 500px;
-    scroll-snap-align: center;
-    padding: 1.25rem;
-  }
+  width: 45vw;
+  /* Reduced height */
+  /* height: 85vw; */
+
+  min-height: 280px;
+  max-height: 420px;
+
+  scroll-snap-align: center;
+  padding: 1.25rem;
+}
 
   /* Reduce rotations on mobile for better stacking in horizontal scroll */
   .hero_card:nth-child(1) { transform: rotate(-3deg); }
   .hero_card:nth-child(2) { transform: rotate(1deg); }
   .hero_card:nth-child(3) { transform: rotate(-2deg); }
   .hero_card:nth-child(4) { transform: rotate(3deg); }
+}
+
+@media screen and (min-width: 769px) {
+  .hero_title {
+    width: 70%;
+  }
 }

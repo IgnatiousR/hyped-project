@@ -4,6 +4,7 @@
   position: relative;
   overflow: hidden;
   --footer-padding: 6rem;
+  overflow: visible;
 }
 
 /* ─── CTA Block ─── */
@@ -24,6 +25,9 @@
   color: var(--text-color);
   margin-bottom: 0.5rem;
 }
+
+.is-desktop { display: inline; }
+.is-mobile { display: none; }
 
 .button-group.is-footer {
   display: flex;
@@ -88,26 +92,48 @@
 /* ─── Footer Main Section ─── */
 .footer-main {
   position: relative;
-  /* Negative margin or similar if needed to overlap */
 }
 
 .footer-bg-wrap {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
+
 
 .footer-bg-svg {
   width: 100%;
   display: block;
 }
 
+/* Desktop background: natural SVG aspect ratio drives its own height */
+.footer-bg-desktop {
+  height: 120%; 
+  /* height: auto; */
+}
+
+/* Mobile background: must stretch to fill all dynamic footer content */
+.footer-bg-mobile {
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+/* Show desktop, hide mobile by default */
+.footer-bg-desktop { display: block; }
+.footer-bg-mobile  { display: none;  }
+
 .footer-logo {
   position: absolute;
-  bottom: 0rem;
-  left: 3rem;
-  width: clamp(180px, 35vw, 450px); /* Larger logo to match image */
+  bottom: 0rem; /* Move to top of beige section */
+  left: 1rem;
+  width: clamp(100px, 20vw, 140px);
   z-index: 2;
-  transform: translateY(15%);
+  pointer-events: auto;
 }
 
 .footer-logo_svg {
@@ -118,9 +144,9 @@
 /* ─── Footer Sticker ─── */
 .footer-sticker {
   position: absolute;
-  top: -4rem;
-  right: 15%;
-  width: clamp(100px, 12vw, 160px);
+  top: -3.5rem;
+  right: 2.5rem;
+  width: clamp(90px, 12vw, 130px);
   z-index: 10;
   pointer-events: none;
 }
@@ -137,16 +163,17 @@
 
 /* ─── Footer Info Content ─── */
 .footer-info-content {
-  background-color: #eae4d8;
-  padding: 2rem 3rem 2rem;
+  position: relative;
+  z-index: 1;
+  padding: 6rem 3rem 0rem; /* More top padding for the logo */
   margin-top: -2px; /* avoid white line */
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 3fr 3.5fr 2fr;
+  grid-template-columns: 6fr 4fr 2fr;
   gap: 2rem;
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
   align-items: flex-end; /* Align bottom to match image */
 }
 
@@ -160,22 +187,6 @@
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
-}
-
-.footer-pill {
-  background-color: white;
-  color: #111;
-  font-weight: 700;
-  font-size: 0.875rem;
-  padding: 0.6rem 1.25rem;
-  border-radius: 2rem;
-  text-decoration: none;
-  transition: all 0.3s var(--smooth-ease, ease);
-}
-
-.footer-pill:hover {
-  background-color: #f0f0f0;
-  transform: translateY(-2px);
 }
 
 .footer-socials {
@@ -255,16 +266,17 @@
 /* ─── Bottom Bar ─── */
 .footer-bottom-bar {
   padding-top: 1.5rem;
+  transform: translateY(125%);
 }
 
 .footer-credits {
-  display: grid;
-  grid-template-columns: 3fr 3.5fr 2fr;
-  gap: 2rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  opacity: 0.6;
+  opacity: 0.45;
   color: var(--text-color);
 }
 
@@ -281,52 +293,255 @@
   text-decoration: underline;
 }
 
+/* ─── Mouse-trail spawned logos ─── */
+.footer-logo-spawn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+
+  z-index: 50; /* higher than sticker + UI */
+
+  transform-origin: center center;
+  will-change: transform, opacity;
+
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.18));
+
+  visibility: hidden;
+  opacity: 0;
+}
+
 /* ─── Responsive ─── */
 @media screen and (max-width: 1024px) {
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2rem;
     align-items: start;
   }
   
   .footer-col.is-empty-left {
-    display: none; /* Logo will stack differently on mobile */
+    display: none;
   }
   
   .footer-logo {
-     left: 2rem;
-     transform: none;
-     bottom: 4rem;
-     width: 300px;
+     left: 1.5rem;
+     top: 1.5rem;
+     width: 180px;
+  }
+
+  .footer-info-content {
+    padding: 5rem 1.5rem 2rem;
   }
 
   .footer-credits {
-    grid-template-columns: 1fr 1fr;
+    font-size: 0.7rem;
   }
-  .credit-left { display: none; } /* On mobile, move or collapse */
 }
 
 @media screen and (max-width: 767px) {
   :root {
     --footer-padding: 4rem;
   }
+
+  .footer-sticker {
+    display: none;
+  }
   
   .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 1.5rem;
   }
   
   .footer-info-content {
-    padding: 3rem 1.5rem 8rem; /* space for logo at bottom */
+    padding: 3rem 1rem 2rem;
   }
-  
+
+  .footer-logo {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 2rem;
+    width: 160px;
+  }
+
   .footer-sticker {
-    right: 5%;
-    top: -3rem;
+    right: 1.5rem;
+    top: -2.5rem;
+    width: 80px;
   }
   
   .footer-credits {
-    grid-template-columns: 1fr;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .footer-pills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
+  }
+
+  .footer-socials {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  /* ── Background swap: hide diagonal desktop SVG, show full mobile SVG ── */
+  .footer-bg-desktop { display: none;  }
+  .footer-bg-mobile  { display: block; }
+
+  /*
+   * On mobile the footer-main stacks vertically so height is dynamic.
+   * Switch footer-bg-wrap to relative so the mobile SVG (position:absolute
+   * inset:0 height:100%) stretches with its parent automatically.
+   */
+  .footer-main {
+    position: relative; /* already relative, but explicit for clarity */
+  }
+  
+
+  .footer-bg-wrap {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+  }
+
+  .footer-cta {
+    padding: 0rem 1rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .footer-cta .heading-xxl {
+    display: none; /* Hide on mobile to match image */
+  }
+
+  .button-group.is-footer {
+    width: 100%;
+  }
+
+  /* Hide the mail button on mobile to match image */
+  .button-group.is-footer .is-outline {
+    display: none;
+  }
+
+  .is-desktop { display: none; }
+  .is-mobile { display: inline; }
+
+  .footer-grid {
+    padding-top: 1rem;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .footer-logo {
+    margin: 0 auto 1rem;
+    width: clamp(180px, 60vw, 240px);
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+
+  .footer-col.is-middle {
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .footer-pills {
+    justify-content: center;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .is-footer-pill {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .footer-socials {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-socials .footer-label {
+    display: none; /* Hide 'Follow us' on mobile to match image */
+  }
+
+  .footer-col.is-right {
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .footer-contact-item {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-contact-item .footer-label {
+    display: none; /* Hide labels like 'Contact' and 'Adres' to match image */
+  }
+
+  .footer-bottom-bar {
+    padding-top: 3rem;
+  }
+
+  .footer-credits {
+    flex-direction: column;
+    gap: 1.5rem;
+    opacity: 0.6;
+  }
+
+  .credit-left, .credit-center, .credit-right {
+    order: 0;
+  }
+
+    /* ─── CENTER MOBILE CTA BUTTON ─── */
+  .footer-info-content .btn-get-results {
+    margin: 1rem auto 2.5rem;   /* vertical spacing + horizontal centering */
+    display: inline-flex;       /* keeps the button's natural size */
+    width: fit-content;
+  }
+
+  /* ─── MAKE SURE FOOTER-GRID IS PERFECTLY CENTERED ─── */
+  .footer-grid {
+    padding-top: 1rem;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .footer-col.is-middle,
+  .footer-col.is-right {
+    align-items: center;
+  }
+
+  .footer-pills {
+    justify-content: center;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .footer-socials {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-contact-item {
+    align-items: center;
+    text-align: center;
   }
 }

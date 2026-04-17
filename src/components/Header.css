@@ -1,9 +1,15 @@
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1000;
+  z-index: 1100;
   width: 100%;
   pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  transform: translateY(0);
+}
+
+.nav.is-hidden {
+  transform: translateY(-100%);
 }
 
 .navbar {
@@ -16,7 +22,7 @@
 }
 
 .nav_logo {
-  height: 4.75em;
+  height: clamp(2.5rem, 8vw, 4.5rem);
   display: flex;
   align-items: center;
   transition: var(--transition);
@@ -129,7 +135,6 @@
     pointer-events: auto;
   }
 
-  /* ─── Pink Rounded Card ─── */
   .nav_mobile-card {
     flex: 1;
     background: #f5bcf7;
@@ -138,12 +143,11 @@
     display: flex;
     flex-direction: column;
     padding: 1.25rem 1.5rem 2rem;
-    transform: scale(0.95) translateY(10px);
-    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    /* transform: translateY(-100%); */
   }
 
   .nav_mobile.is-open .nav_mobile-card {
-    transform: scale(1) translateY(0);
+    /* GSAP handles this transform now */
   }
 
   /* ─── Card Header: Logo + Close ─── */
@@ -163,25 +167,8 @@
   }
 
   .nav_mobile-close {
-    width: 2.75rem;
-    height: 2.75rem;
-    background: white;
-    border: none;
-    border-radius: 0.625rem;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #000;
+    /* Style is handled by nav_toggle classes now, we just ensure it doesn't get text styling overrides */
     flex-shrink: 0;
-    transition: background 0.2s ease, transform 0.2s ease;
-  }
-
-  .nav_mobile-close:hover {
-    background: #f0f0f0;
-    transform: scale(1.06);
   }
 
   /* ─── Nav Links (centered pills) ─── */
@@ -197,12 +184,11 @@
   /* Override NavItem swoosh appearance for the overlay */
   .nav_mobile-links .button-color-swoosh {
     background: white !important;
-    border-radius: 3rem !important;
-    padding: 0.875rem 2.75rem !important;
-    min-width: 210px;
+    border-radius: 0.75rem !important;
+    padding: 0.6rem 1.25rem !important;
     justify-content: center;
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #000 !important;
     text-decoration: none;
     display: inline-flex;
@@ -236,4 +222,14 @@
     flex-shrink: 0;
     padding-top: 1rem;
   }
+
+  .nav_mobile-footer {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  padding-top: 1rem;
+
+  transform: translateY(100%);
+  opacity: 0;
+}
 }

@@ -1,42 +1,42 @@
-import React from 'react';
-import './SelectedWork.css';
+import React from "react";
+import "./SelectedWork.css";
 
 interface Project {
   id: string;
   title: string;
   tag: string;
   image: string;
-  theme: 'red' | 'blue' | 'green';
+  theme: "red" | "blue" | "green";
   videoId: string;
 }
 
 const projects: Project[] = [
   {
-    id: '1',
-    title: 'Van nul naar vol, binnen 3 weken',
-    tag: 'Bullit',
+    id: "1",
+    title: "Van nul naar vol, binnen 3 weken",
+    tag: "Bullit",
     image:
-      'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop',
-    theme: 'red',
-    videoId: 'dQw4w9WgXcQ',
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop",
+    theme: "red",
+    videoId: "dQw4w9WgXcQ",
   },
   {
-    id: '2',
-    title: 'Zacht in smaak, sterk in beeld',
-    tag: 'Roasta',
+    id: "2",
+    title: "Zacht in smaak, sterk in beeld",
+    tag: "Roasta",
     image:
-      'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop',
-    theme: 'blue',
-    videoId: 'dQw4w9WgXcQ',
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop",
+    theme: "blue",
+    videoId: "dQw4w9WgXcQ",
   },
   {
-    id: '3',
-    title: 'Content die écht smaakt (en raakt)',
-    tag: 'Loco',
+    id: "3",
+    title: "Content die écht smaakt (en raakt)",
+    tag: "Loco",
     image:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop',
-    theme: 'green',
-    videoId: 'dQw4w9WgXcQ',
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop",
+    theme: "green",
+    videoId: "dQw4w9WgXcQ",
   },
 ];
 
@@ -58,19 +58,35 @@ const ArrowIcon = () => (
 const BannerShape = () => (
   <svg
     className="sw-card_shape-svg"
-    viewBox="0 0 429 174"
+    viewBox="0 0 429 234"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M428.625 35.0943V136.589C428.625 152.326 428.625 167.249 428.625 173.088L1.03513e-06 173.082C-1.56688e-05 170.148 0.000175319 166.808 0.000175319 159.068V77.9695C0.000175319 70.9826 5.03458 65.0132 11.904 63.8674L388.605 1.00885C409.565 -2.47661 428.625 13.7568 428.625 35.0862"
+      d="
+        M428.625 35.0943
+        V196.589
+        C428.625 217.944 409.565 233.088 388.605 233.088
+        H40
+        C15 233.088 0 215 0 190
+        V77.9695
+        C0 60 15 50 35 47
+        L388.605 1.00885
+        C409.565 -2.47661 428.625 13.7568 428.625 35.0862
+        Z
+      "
       fill="currentColor"
     />
   </svg>
 );
 
 const HeaderArrow = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 0 22 21" fill="none">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="100%"
+    viewBox="0 0 22 21"
+    fill="none"
+  >
     <path
       d="M11.2832 20.9176L9.14509 18.8002L15.5491 12.3962L-0.00939941 12.3962L-0.00939941 9.30322L15.5491 9.30322L9.14509 2.9096L11.2832 0.78186L21.3511 10.8497L11.2832 20.9176Z"
       fill="currentColor"
@@ -85,14 +101,10 @@ const SelectedWork: React.FC = () => {
     <section className="section_selected-work" id="selected-work">
       <div className="selected-work_header">
         <div className="selected-work_header-left">
-          <h1 className="selected-work_title">
-            Content
-            <br />
-            dat scoort.
-          </h1>
+          <h1 className="selected-work_title">Content that scores.</h1>
           <p className="selected-work_description">
-            Wij vertellen jouw verhaal. Op een manier die écht past bij jouw doelgroep. Met
-            creatieve content die werkt en het verschil maakt.
+            We tell your story. In a way that truly resonates with your target
+            audience. With creative content that works and makes a difference.
           </p>
         </div>
         <a href="#work" className="selected-work_cta">
@@ -112,7 +124,11 @@ const SelectedWork: React.FC = () => {
             onMouseLeave={() => setHoveredId(null)}
           >
             <div className="project-card_inner">
-              <img src={project.image} alt={project.title} className="project-card_image" />
+              <img
+                src={project.image}
+                alt={project.title}
+                className="project-card_image"
+              />
 
               <div className="video-container">
                 {hoveredId === project.id && (

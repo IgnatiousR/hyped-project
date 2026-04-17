@@ -1,6 +1,5 @@
 /* --- Section Root --- */
 .section_selected-work {
-  background-color: var(--_colors---swatch--off-white, #faf4ec);
   padding: 8rem 5%;
   display: flex;
   flex-direction: column;
@@ -174,6 +173,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
+  padding: 1rem;
   z-index: 3;
   pointer-events: none;
 }
@@ -194,36 +194,37 @@
 
 .sw-card_content {
   position: absolute;
-  bottom: 2rem;
+  bottom: 2.8rem;
   left: 2rem;
-  right: 6rem;
+  right: 6.5rem;
   z-index: 4;
 }
 
 .sw-card_title {
   color: white;
-  font-size: clamp(1.2rem, 1.8vw, 1.75rem);
-  font-weight: 700;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-weight: 600;
   line-height: 1.1;
   margin-bottom: 0.75rem;
 }
 
 .sw-card_tag {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(10px);
-  padding: 0.4rem 1rem;
-  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  padding: 0.4rem 1.1rem;
+  border-radius: 0.6rem;
   color: white;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 /* --- Icon Dual Animation --- */
 .sw-card_icon-container {
   position: absolute;
   right: 2.2rem;
-  bottom: 2.22rem;
+  bottom: 2.8rem;
   width: 3.5rem;
   height: 3.5rem;
   background: white;

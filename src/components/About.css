@@ -9,14 +9,15 @@
 }
 
 .about_heading {
-  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-size: clamp(2.0rem, 5.5vw, 4.5rem);
+      padding-left: 5rem;
+    padding-right: 5rem;
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: -0.04em;
   margin-bottom: 6rem;
   color: var(--text-color);
   max-width: 90%;
-  padding-left: 2.5rem;
 }
 
 .about_grid {
@@ -141,8 +142,8 @@
   .about_heading {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    margin-bottom: 4rem;
-    font-size: 3rem;
+    /* margin-bottom: 4rem; */
+    /* font-size: 3rem; */
   }
   
   .about_grid {
@@ -167,9 +168,9 @@
 }
 
 @media screen and (max-width: 768px) {
-  .about_heading {
+  /* .about_heading {
     font-size: 2.25rem;
-  }
+  } */
   
   .about_image-wrapper {
     width: 100%;

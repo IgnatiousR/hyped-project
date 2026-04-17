@@ -247,6 +247,7 @@
     padding: 3rem 2.5rem;
     border-radius: 2.5rem;
     min-height: auto;
+    flex-direction: column;
   }
 
   .expertise-content_top {
@@ -266,12 +267,14 @@
 
   .expertise-content_right {
     width: 60vw;
+    order: -1;
     align-self: flex-end;
     margin-right: 0;
   }
 
   .expertise-content_left {
     max-width: 100%;
+    order: 1;
   }
 }
 
@@ -297,14 +300,5 @@
   .expertise-content_number {
     font-size: 3.5rem;
   }
-
-  .expertise-content_right {
-    width: 75vw;
-  }
 }
 
-@media screen and (max-width: 479px) {
-  .expertise-content_right {
-    width: 90vw;
-  }
-}
