@@ -22,10 +22,6 @@
   transition: var(--transition);
 }
 
-.nav_logo:hover {
-  transform: scale(1.05);
-}
-
 .navbar_menu {
   display: flex;
   gap: 0.5rem;
@@ -34,7 +30,7 @@
   transform: translateX(-50%);
   background: white;
   padding: 0.4rem;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
