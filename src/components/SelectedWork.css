@@ -3,7 +3,7 @@
   padding: 8rem 5%;
   display: flex;
   flex-direction: column;
-  gap: 6rem;
+  gap: 0rem;
 }
 
 /* --- Header --- */
@@ -33,9 +33,11 @@
 .selected-work_description {
   font-size: clamp(1rem, 1.4vw, 1.25rem);
   line-height: 1.4;
+  font-weight: 600;
   color: #1a1a1a;
   opacity: 0.9;
   max-width: 500px;
+  margin-bottom: 2rem;
 }
 
 .selected-work_cta {
@@ -181,6 +183,7 @@
 .sw-card_shape {
   position: relative;
   width: 100%;
+  /* transform: scaleY(1.2);  */
   color: var(--brand-color);
   margin-bottom: -1px; /* Avoid gap */
 }

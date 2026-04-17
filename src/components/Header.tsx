@@ -5,7 +5,10 @@ import Button from "./Button";
 import "./Header.css";
 
 const Header = () => {
+  // isMenuOpen  → controls hamburger X appearance, scroll lock, header hide-on-scroll
+  // overlayOpen → controls the `is-open` class on .nav_mobile (kept true while GSAP reverses)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [overlayOpen, setOverlayOpen] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const lastScrollY = useRef(0);
   const menuCardRef = useRef<HTMLDivElement>(null);
@@ -22,7 +25,7 @@ const Header = () => {
       defaults: { overwrite: "auto" },
     });
 
-    // IMPORTANT: set initial state manually first
+    // Set initial states
     gsap.set(menuCardRef.current, { y: "-100%" });
     gsap.set(menuFooterRef.current, { y: "100%", opacity: 0 });
 
@@ -51,18 +54,12 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      // Don't hide header if menu is open
       if (isMenuOpen) return;
-
-      // Hide if scrolling down and past the header height
       if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
         setIsHidden(true);
       } else {
-        // Show if scrolling up
         setIsHidden(false);
       }
-
       lastScrollY.current = currentScrollY;
     };
 
@@ -73,6 +70,35 @@ const Header = () => {
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
   }, [isMenuOpen]);
+
+  /** Open the menu */
+  const openMenu = () => {
+    setIsMenuOpen(true);
+    setOverlayOpen(true);
+    tl.current?.play(0);
+  };
+
+  /**
+   * Close the menu.
+   * 1. Flip the hamburger icon back immediately (isMenuOpen = false).
+   * 2. Play the GSAP reverse animation.
+   * 3. Only hide the overlay (overlayOpen = false) once the animation finishes,
+   *    so the CSS opacity/visibility transition never fires mid-animation.
+   */
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    tl.current?.reverse().then(() => {
+      setOverlayOpen(false);
+    });
+  };
+
+  const toggleMenu = () => {
+    if (isMenuOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  };
 
   const flameIcon = (
     <svg
@@ -159,22 +185,10 @@ const Header = () => {
               Get Results
             </Button>
 
-            {/* Hamburger Toggle */}
+            {/* Hamburger / Close Toggle */}
             <button
               className={`nav_toggle ${isMenuOpen ? "is-active" : ""}`}
-              onClick={() => {
-                setIsMenuOpen((prev) => {
-                  const next = !prev;
-
-                  if (next) {
-                    tl.current?.play(0); // ALWAYS start from beginning
-                  } else {
-                    tl.current?.reverse();
-                  }
-
-                  return next;
-                });
-              }}
+              onClick={toggleMenu}
               aria-label="Toggle menu"
             >
               <div className="nav_toggle-line is-top"></div>
@@ -184,10 +198,10 @@ const Header = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay — stays mounted while GSAP reverses */}
       <div
-        className={`nav_mobile ${isMenuOpen ? "is-open" : ""}`}
-        aria-hidden={!isMenuOpen}
+        className={`nav_mobile ${overlayOpen ? "is-open" : ""}`}
+        aria-hidden={!overlayOpen}
       >
         <div className="nav_mobile-card" ref={menuCardRef}>
           {/* Nav Links */}
@@ -195,23 +209,11 @@ const Header = () => {
             <NavItem
               label="Expertises"
               href="/expertises"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={closeMenu}
             />
-            <NavItem
-              label="Work"
-              href="/work"
-              onClick={() => setIsMenuOpen(false)}
-            />
-            <NavItem
-              label="About"
-              href="/about"
-              onClick={() => setIsMenuOpen(false)}
-            />
-            <NavItem
-              label="Contact"
-              href="/contact"
-              onClick={() => setIsMenuOpen(false)}
-            />
+            <NavItem label="Work" href="/work" onClick={closeMenu} />
+            <NavItem label="About" href="/about" onClick={closeMenu} />
+            <NavItem label="Contact" href="/contact" onClick={closeMenu} />
           </div>
 
           {/* Bottom CTA */}

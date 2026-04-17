@@ -119,26 +119,43 @@ const Expertises = () => {
 
       ctx = gsap.context(() => {
         const items = gsap.utils.toArray<HTMLElement>(".expertise-item");
+        const isMobile = window.innerWidth <= 991;
 
         items.forEach((item, index) => {
           const content = item.querySelector(".expertise-content");
           const isLast = index === items.length - 1;
 
           if (!isLast && content) {
-            // Animation for the card as it gets covered by the next one
-            gsap.to(content, {
-              scale: 0.9,
-              rotationX: -10,
-              opacity: 0,
-              filter: "blur(10px)",
-              ease: "none",
-              scrollTrigger: {
-                trigger: items[index + 1], // Triggered when the NEXT card starts entering
-                start: "top bottom",
-                end: "top top",
-                scrub: true,
-              },
-            });
+            if (isMobile) {
+              // Mobile flip animation
+              gsap.to(content, {
+                rotationX: -90,
+                transformOrigin: "center center",
+                opacity: 0,
+                ease: "power3.inOut",
+                scrollTrigger: {
+                  trigger: items[index + 1],
+                  start: "top bottom",
+                  end: "top top",
+                  scrub: true,
+                },
+              });
+            } else {
+              // Desktop animation (keep existing)
+              gsap.to(content, {
+                scale: 0.9,
+                rotationX: -10,
+                opacity: 0,
+                filter: "blur(10px)",
+                ease: "none",
+                scrollTrigger: {
+                  trigger: items[index + 1],
+                  start: "top bottom",
+                  end: "top top",
+                  scrub: true,
+                },
+              });
+            }
           }
         });
       }, sectionRef);

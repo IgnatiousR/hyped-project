@@ -442,11 +442,13 @@
 
   .footer-logo {
     margin: 0 auto 1rem;
-    width: clamp(180px, 60vw, 240px);
+    /* width: clamp(200px, 60vw, 240px); */
+    width: 23rem;
     display: block;
     position: relative;
     left: 0;
     top: 0;
+    transform: translateY(-10%);
   }
 
   .footer-col.is-middle {
@@ -492,7 +494,8 @@
   }
 
   .footer-bottom-bar {
-    padding-top: 3rem;
+    /* padding-top: 3rem; */
+    transform: translateY(0%);
   }
 
   .footer-credits {
@@ -505,10 +508,10 @@
     order: 0;
   }
 
-    /* ─── CENTER MOBILE CTA BUTTON ─── */
-  .footer-info-content .btn-get-results {
+  /* ─── CENTER MOBILE CTA BUTTON ─── */
+  .footer-info-content .is-mobile {
     margin: 1rem auto 2.5rem;   /* vertical spacing + horizontal centering */
-    display: inline-flex;       /* keeps the button's natural size */
+    display: flex;
     width: fit-content;
   }
 

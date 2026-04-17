@@ -1,5 +1,6 @@
 import React from "react";
 import "./SelectedWork.css";
+import Button from "./Button";
 
 interface Project {
   id: string;
@@ -13,7 +14,7 @@ interface Project {
 const projects: Project[] = [
   {
     id: "1",
-    title: "Van nul naar vol, binnen 3 weken",
+    title: "From zero to full, within 3 weeks",
     tag: "Bullit",
     image:
       "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop",
@@ -22,7 +23,7 @@ const projects: Project[] = [
   },
   {
     id: "2",
-    title: "Zacht in smaak, sterk in beeld",
+    title: "Soft in taste, strong in appearance",
     tag: "Roasta",
     image:
       "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop",
@@ -31,7 +32,7 @@ const projects: Project[] = [
   },
   {
     id: "3",
-    title: "Content die écht smaakt (en raakt)",
+    title: "Content that really tastes good (and touches)",
     tag: "Loco",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop",
@@ -80,6 +81,22 @@ const BannerShape = () => (
   </svg>
 );
 
+const arrowIcon = (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M5 12h14"></path>
+    <path d="m12 5 7 7-7 7"></path>
+  </svg>
+);
+
 const HeaderArrow = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -106,13 +123,22 @@ const SelectedWork: React.FC = () => {
             We tell your story. In a way that truly resonates with your target
             audience. With creative content that works and makes a difference.
           </p>
+          <Button
+            variant="outline"
+            icon={arrowIcon}
+            bgColor=""
+            textColor=""
+            iconBgColor="#fff"
+          >
+            View all our work
+          </Button>
         </div>
-        <a href="#work" className="selected-work_cta">
+        {/* <a href="#work" className="selected-work_cta">
           Bekijk al ons werk
           <div className="selected-work_cta-icon">
             <HeaderArrow />
           </div>
-        </a>
+        </a> */}
       </div>
 
       <div className="selected-work_grid">
