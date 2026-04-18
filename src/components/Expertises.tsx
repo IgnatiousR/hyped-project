@@ -106,7 +106,7 @@ export default function Expertises() {
       cards.forEach((card, i) => {
         gsap.set(card, {
           zIndex: i + 1, // higher index = renders on top when sliding up
-          yPercent: i === 0 ? 0 : 100,
+          yPercent: i === 0 ? 0 : 125,
           scale: 1,
           rotateX: 0,
           transformOrigin: "50% 8%", // scale from near top edge
