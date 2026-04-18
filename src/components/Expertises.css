@@ -59,7 +59,7 @@
   will-change: transform;
 
   display: grid;
-  grid-template-columns: 1fr 38%;
+  grid-template-columns: 1fr 42%;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas:
     "header header"
@@ -134,7 +134,7 @@
   grid-area: image;
   display: flex;
   align-items: flex-end;   /* photo sits at the bottom of the column */
-  justify-content: center;
+  justify-content: flex-end;
   padding-bottom: calc(var(--size-font) * 0.5);
 }
 
@@ -142,7 +142,7 @@
 .card-img-placeholder {
   display: block;
   width: 100%;
-  max-width: calc(var(--size-font) * 18);
+  max-width: calc(var(--size-font) * 22);
   aspect-ratio: 3 / 4;
   border-radius: calc(var(--size-font) * 1.2);
   border: calc(var(--size-font) * 0.28) solid var(--img-border-color, #ffffff);
@@ -168,7 +168,7 @@
 }
 
 .card-headline {
-  font-size: calc(var(--size-font) * 1.4);
+  font-size: calc(var(--size-font) * 1.7);
   font-weight: 700;
   line-height: 1.2;
   color: #1a1a1a;
@@ -176,7 +176,7 @@
 }
 
 .card-description {
-  font-size: calc(var(--size-font) * 0.95);
+  font-size: calc(var(--size-font) * 1.2);
   line-height: 1.65;
   color: #1a1a1a;
   margin-bottom: calc(var(--size-font) * 1.5);

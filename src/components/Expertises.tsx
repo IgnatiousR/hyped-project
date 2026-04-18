@@ -11,15 +11,16 @@ const EXPERTISES = [
   {
     number: "01",
     title: "Social strategy",
-    headline: "Slimme strategie. Sterke start.",
+    headline: "Smart strategy. Strong start.",
     description:
-      "We duiken diep in jouw merk, doelgroep en doelen. En vertalen data naar een duidelijk plan met formats die écht impact maken. Zo weet je precies waarom het werkt.",
-    cta: "Meer over social strategie",
-    href: "/expertises/social-strategie",
+      "We dive deep into your brand, target audience and objectives. We translate data into a clear plan with formats that truly make an impact. So you know exactly why it works.",
+    cta: "More about social strategy",
+    href: "#",
     bg: "#ffffff",
     btnBg: "#ff3b30",
     btnText: "#ffffff",
-    btnIconBg: "#1a1a1a",
+    btnIconBg: "#fff",
+    Icon: "#000",
     imageBorderColor: "#ff3b30",
     // Replace `null` with your image path, e.g. "/images/social-strategy.jpg"
     image: null,
@@ -27,46 +28,49 @@ const EXPERTISES = [
   {
     number: "02",
     title: "Content creation",
-    headline: "Content die opvalt en raakt.",
+    headline: "Content that stands out and resonates.",
     description:
-      "We maken content die opvalt. Blijft hangen. En jouw doelgroep raakt. Creatief, snel en energiek. Altijd met het doel voor ogen.",
-    cta: "Meer over content creatie",
-    href: "/expertises/content-creatie",
+      "We create content that stands out. Sticks. And connects with your audience. Creative, fast and energetic. Always with the goal in mind.",
+    cta: "More about content creation",
+    href: "#",
     bg: "#fcb8fa",
     btnBg: "#ffffff",
     btnText: "#1a1a1a",
     btnIconBg: "#1a1a1a",
     imageBorderColor: "#ffffff",
+    Icon: "#fff",
     image: null,
   },
   {
     number: "03",
     title: "Activation",
-    headline: "Zichtbaar waar en wanneer het telt.",
+    headline: "Visible where and when it matters.",
     description:
-      "De juiste content verdient het om gezien te worden. We verspreiden de content waar jouw doelgroep is. Zo raakt jouw merk de juiste mensen, precies waar en wanneer het telt.",
-    cta: "Meer over activatie",
-    href: "/expertises/activatie",
+      "Great content deserves to be seen. We distribute content where your audience is. So your brand reaches the right people, exactly where and when it matters most.",
+    cta: "More about activation",
+    href: "#",
     bg: "#3ecf8e",
     btnBg: "#ffffff",
     btnText: "#1a1a1a",
     btnIconBg: "#1a1a1a",
     imageBorderColor: "#ffffff",
+    Icon: "#fff",
     image: null,
   },
   {
     number: "04",
     title: "Data",
-    headline: "Inzichten die impact maken.",
+    headline: "Insights that drive impact.",
     description:
-      "We duiken in de cijfers om te snappen wat écht werkt. En sturen jouw content scherp bij.",
-    cta: "Meer over data",
-    href: "/expertises/data",
+      "We dive into the numbers to understand what really works. And refine your content strategy accordingly.",
+    cta: "More about data",
+    href: "#",
     bg: "#3b82f6",
     btnBg: "#ffffff",
     btnText: "#1a1a1a",
     btnIconBg: "#1a1a1a",
     imageBorderColor: "#ffffff",
+    Icon: "#fff",
     image: null,
   },
 ];
@@ -206,7 +210,7 @@ export default function Expertises() {
                   bgColor={exp.btnBg}
                   textColor={exp.btnText}
                   iconBgColor={exp.btnIconBg}
-                  iconColor="#ffffff"
+                  iconColor={exp.Icon}
                   icon={<ArrowIcon />}
                 >
                   {exp.cta}
