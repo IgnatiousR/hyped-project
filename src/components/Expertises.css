@@ -18,7 +18,7 @@
   position: sticky;
   top: 0;
   height: 100vh;
-  overflow: hidden;
+  overflow: visible;
   padding: calc(var(--size-font) * 2.75);
 }
 

@@ -78,7 +78,7 @@
 
   margin-left: 0.8em;
 
-  transition: transform var(--speed-faster) ease-out;
+  transition: transform var(--speed-faster) ease-out, margin-left var(--speed-faster) ease-out;
 }
 .button-default__icon svg {
   transition: transform var(--speed-faster) ease-out;
@@ -93,6 +93,11 @@
 
   .button-default:hover .button-default__inner {
     transform: skewY(-4deg) rotate(-1deg) scale(1.02);
+  }
+
+  .button-default:hover .button-default__icon {
+    transform: skewY(-4deg) rotate(-1deg) scale(0.92);
+    margin-left: 0.6em;
   }
 
   .button-default:hover .button-default__icon svg {
@@ -137,6 +142,6 @@
   }
 
   .button-default.is-outline:hover .button-default__icon {
-    transform: translateX(2px);
+    transform: skewY(-4deg) rotate(-1deg) translateX(2px);
   }
 }

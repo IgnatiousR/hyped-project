@@ -1,0 +1,10 @@
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  transition: fill 0.2s ease, transform 0.2s ease;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
