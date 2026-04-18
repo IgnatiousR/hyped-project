@@ -21,6 +21,9 @@ const OUTLINE_COLORS: string[] = [
   "#A855F7", // purple
 ];
 
+// ─── SVG intrinsic dimensions (viewBox="0 0 374 142") ────────
+const SVG_ASPECT = 374 / 142; // ≈ 2.634 — used to center on cursor
+
 // ─── Spawn timing ────────────────────────────────────────────
 const SPAWN_DELAY_SEC = 0.25; // delay between spawns (seconds)
 
@@ -56,7 +59,8 @@ function useFooterLogoSpawner() {
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 374 142" fill="none" width="100%">
         <rect x="3" y="3" width="368" height="136" rx="10" ry="10"
   fill="none"
-  stroke="none"
+  stroke="var(--spawn-color, #FF5A36)"
+  stroke-width="6"
 />
         <path d="M346.695 141.574H98.1443V39.7663L342.475 1.31406C358.99 -1.28201 373.926 11.5381 373.926 28.3324V114.227C373.926 129.331 361.735 141.574 346.695 141.574Z" fill="black"/>
         <path d="M126.851 41.6173V79.9895L119.894 80.6225V42.651L105.669 44.7503V135.404L119.894 135.268V97.2966L126.851 96.8319V135.204L142.026 135.06V39.3738L126.851 41.6173Z" fill="white"/>
@@ -96,15 +100,13 @@ function useFooterLogoSpawner() {
         OUTLINE_COLORS[Math.floor(Math.random() * OUTLINE_COLORS.length)];
 
       const w = 160 + Math.random() * 60;
+      const h = w / SVG_ASPECT; // intrinsic height at this width
       const scale = 0.85 + Math.random() * 0.35;
 
       // Tilt calculation
       const movementAngleDeg = Math.atan2(dy, dx) * (180 / Math.PI);
 
-      // Smaller wobble
       const wobble = (Math.random() - 0.5) * WOBBLE_RANGE;
-
-      // Reduced tilt influence
       const rotation = movementAngleDeg * TILT_FACTOR + wobble;
 
       const travel = Math.min(speed * TRAVEL_FACTOR, MAX_TRAVEL);
@@ -112,9 +114,10 @@ function useFooterLogoSpawner() {
 
       gsap.killTweensOf(el);
 
+      // Center the logo exactly on the cursor (both axes)
       gsap.set(el, {
         x: x - w / 2,
-        y: y - 40,
+        y: y - h / 2,
         width: w,
         rotation,
         scale: scale * 0.55,

@@ -22,8 +22,7 @@ const EXPERTISES = [
     btnIconBg: "#fff",
     Icon: "#000",
     imageBorderColor: "#ff3b30",
-    // Replace `null` with your image path, e.g. "/images/social-strategy.jpg"
-    image: null,
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
   },
   {
     number: "02",
@@ -39,7 +38,7 @@ const EXPERTISES = [
     btnIconBg: "#1a1a1a",
     imageBorderColor: "#ffffff",
     Icon: "#fff",
-    image: null,
+    video: "https://www.w3schools.com/html/movie.mp4",
   },
   {
     number: "03",
@@ -55,7 +54,7 @@ const EXPERTISES = [
     btnIconBg: "#1a1a1a",
     imageBorderColor: "#ffffff",
     Icon: "#fff",
-    image: null,
+    video: "https://media.w3.org/2010/05/sintel/trailer_hd.mp4",
   },
   {
     number: "04",
@@ -71,7 +70,7 @@ const EXPERTISES = [
     btnIconBg: "#1a1a1a",
     imageBorderColor: "#ffffff",
     Icon: "#fff",
-    image: null,
+    video: "https://media.w3.org/2010/05/bunny/trailer.mp4",
   },
 ];
 
@@ -192,10 +191,19 @@ export default function Expertises() {
               {/* ── Title ── */}
               <h2 className="card-title">{exp.title}</h2>
 
-              {/* ── Image (right column, desktop) ── */}
+              {/* ── Video (right column, desktop) ── */}
               <div className="card-image-wrap">
-                {exp.image ? (
-                  <img src={exp.image} alt={exp.title} className="card-img" />
+                {exp.video ? (
+                  <video
+                    src={exp.video}
+                    className="card-img"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    disablePictureInPicture
+                    controls={false}
+                  />
                 ) : (
                   <div className="card-img-placeholder" aria-hidden="true" />
                 )}
