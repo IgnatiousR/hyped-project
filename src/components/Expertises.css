@@ -19,7 +19,7 @@
   top: 0;
   height: 100vh;
   overflow: hidden;
-  padding: calc(var(--size-font) * 2);
+  padding: calc(var(--size-font) * 2.75);
 }
 
 /* ── Cards container ────────────────────────────────────────────────── */
@@ -33,7 +33,7 @@
   width: 100%;
   height: 100%;
   border-radius: calc(var(--size-font) * 1.5);
-  overflow: hidden;
+  overflow: visible;
   perspective: 1500px;
 }
 
