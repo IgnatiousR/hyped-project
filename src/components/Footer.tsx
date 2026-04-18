@@ -12,14 +12,6 @@ import gsap from "gsap";
 
 // ─── Object-pooled logo spawner ──────────────────────────────────────────────
 const POOL_SIZE = 12;
-const OUTLINE_COLORS: string[] = [
-  "#FF5A36", // orange
-  "#00E5A0", // green
-  "#3B9EFF", // blue
-  "#FC5AFA", // pink
-  "#FFD43B", // yellow
-  "#A855F7", // purple
-];
 
 // ─── SVG intrinsic dimensions (viewBox="0 0 374 142") ────────
 const SVG_ASPECT = 374 / 142; // ≈ 2.634 — used to center on cursor
@@ -59,7 +51,6 @@ function useFooterLogoSpawner() {
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 374 142" fill="none" width="100%">
         <rect x="3" y="3" width="368" height="136" rx="10" ry="10"
   fill="none"
-  stroke="var(--spawn-color, #FF5A36)"
   stroke-width="6"
 />
         <path d="M346.695 141.574H98.1443V39.7663L342.475 1.31406C358.99 -1.28201 373.926 11.5381 373.926 28.3324V114.227C373.926 129.331 361.735 141.574 346.695 141.574Z" fill="black"/>
@@ -96,9 +87,6 @@ function useFooterLogoSpawner() {
       const el = poolRef.current[poolIdx.current % POOL_SIZE];
       poolIdx.current++;
 
-      const color =
-        OUTLINE_COLORS[Math.floor(Math.random() * OUTLINE_COLORS.length)];
-
       const w = 160 + Math.random() * 60;
       const h = w / SVG_ASPECT; // intrinsic height at this width
       const scale = 0.85 + Math.random() * 0.35;
@@ -122,7 +110,6 @@ function useFooterLogoSpawner() {
         rotation,
         scale: scale * 0.55,
         autoAlpha: 0,
-        "--spawn-color": color,
       });
 
       const tl = gsap.timeline({
@@ -421,23 +408,23 @@ const Footer = () => {
                   <div className="footer-contact-item">
                     <div className="footer-label">Contact</div>
                     <a
-                      href="mailto:info@gethyped.nl"
+                      href="mailto:test@gmail.com"
                       className="footer-link text-small"
                     >
-                      info@gethyped.nl
+                      test@gmail.com
                     </a>
                     <a
                       href="tel:+31615337496"
                       className="footer-link text-small"
                     >
-                      +31 6 1533 7496
+                      +11 1 1111 1111
                     </a>
                   </div>
 
                   <div className="footer-contact-item">
-                    <div className="footer-label">Adres</div>
+                    <div className="footer-label">Address</div>
                     <a
-                      href="https://www.google.nl/maps/dir/?api=1&destination=Beltrumsestraat+6%2C+7141+AL+Groenlo"
+                      href="#"
                       target="_blank"
                       rel="noreferrer"
                       className="footer-link text-small"
@@ -457,17 +444,17 @@ const Footer = () => {
                   </div>
                   <div className="credit-center">
                     <a
-                      href="https://dylanbrouwer.design/"
+                      href="#"
                       target="_blank"
                       rel="noreferrer"
                       className="design-credit"
                     >
-                      © Design by Dylan
+                      © Design by Ignatious
                     </a>
                   </div>
                   <div className="credit-right">
-                    <a href="/privacy" className="privacy-link">
-                      Privacyvoorwaarden
+                    <a href="#" className="privacy-link">
+                      Privacy Policy
                     </a>
                   </div>
                 </div>

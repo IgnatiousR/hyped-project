@@ -293,7 +293,6 @@
   text-decoration: underline;
 }
 
-/* ─── Mouse-trail spawned logos ─── */
 .footer-logo-spawn {
   position: absolute;
   top: 0;
@@ -306,9 +305,6 @@
   will-change: transform, opacity;
 
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.18));
-
-  /* Expose --spawn-color so the inner SVG stroke can inherit it */
-  --spawn-color: #FF5A36;
 
   visibility: hidden;
   opacity: 0;
